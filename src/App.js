@@ -6,24 +6,26 @@ import './styles/General.css';
 
 export const App = () => {
     return(
-        <BrowserRouter>
-            <Routes>
-                <Route 
-                    path="/login"
-                    element={<Login/>}
-                />
-                <Route
-                    path="/"
-                    element={<Lobby/>}
-                />
-                <Route
-                    path="/room/:id"
-                    element={<Room/>}
-                />
-                {/*
-                    404 Not Found Page
-                */}
-            </Routes>
-        </BrowserRouter>
+        <div className='main'>
+            <BrowserRouter>
+                <Routes>
+                    <Route 
+                        path="/login"
+                        element={<Login/>}
+                    />
+                    <Route
+                        path="/"
+                        element={<Lobby/>}
+                    />
+                    <Route
+                        path="/room/:id"
+                        element={<Room/>}
+                    />
+                    {/*
+                        404 Not Found Page
+                    */}
+                </Routes>
+            </BrowserRouter>
+        </div>
     )
 };
