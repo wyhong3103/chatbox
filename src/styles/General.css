@@ -8,10 +8,21 @@
 
 html{
     font-size: 10px;
+    --main-font : 'Roboto', sans-serif;
     --nav-bg : #1F2937;
     --nav-title : #F9FAF8;
     --nav-link : #b4b4b4;
     --blue : #3882F6;
     --dark-blue : #1F2937;
     --chatbox-bg : #E5E7EB;
+}
+
+.main{
+    height : 100vh;
+    width : 100vw;
+}
+
+.main-cont{
+    height : 100%;
+    width : 100%;
 }
