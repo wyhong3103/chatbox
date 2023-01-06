@@ -1,10 +1,27 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AccountContext } from '../context/AccountContext';
+import { getAuth, signOut } from 'firebase/auth';
 import '../styles/Nav.css';
 
 export const Nav = () => {
     const context = useContext(AccountContext);
+
+    // Firebase Auth
+    const auth = getAuth();
+
+    const signOutFunc = () => {
+        signOut(auth).then(
+            () => {
+                context.setStatus(false);
+                context.setCurProf({});
+            }
+        ).catch(
+            (error) => {
+                console.error(error);
+            }
+        )
+    }
 
     return(
         <nav>
@@ -21,12 +38,7 @@ export const Nav = () => {
                         </Link>
                     </li>
                     {/* Might change later according to auth state change*/}
-                    <li onClick={
-                        () => {
-                            context.setStatus(false);
-                            context.setCurProf({});
-                        }
-                    }>
+                    <li onClick={signOutFunc}>
                         Sign Out
                     </li>
                 </ul>
