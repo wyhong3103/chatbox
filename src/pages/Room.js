@@ -45,6 +45,25 @@ export const Room = () => {
         return messageTemp;
     }
 
+    const sendMsg = async () => {
+        if (inp.trim() === "") return;
+        setInp("");
+        addDoc(collection(db, 'room', id, 'message'), {
+            name : curProf.name,
+            profileURL : curProf.profileURL,
+            content : inp,
+            uid : curProf.uid,
+            timestamp : Date.now()
+        })
+    }
+
+    const handleKeyPress = (e) => {
+        if (e.key === "Enter" && !e.shiftKey){
+            e.preventDefault();
+            sendMsg();
+        }
+    }
+
     // Subscribe when mounted, and unsubscribe when unmounted
     useEffect(
         () => {
@@ -58,17 +77,6 @@ export const Room = () => {
             }
         }
     , [])
-
-    const sendMsg = async () => {
-        setInp("");
-        addDoc(collection(db, 'room', id, 'message'), {
-            name : curProf.name,
-            profileURL : curProf.profileURL,
-            content : inp,
-            uid : curProf.uid,
-            timestamp : Date.now()
-        })
-    }
 
 
     return(
@@ -103,7 +111,11 @@ export const Room = () => {
                             </div>
                     
                             <div className="inp-cont">
-                                <textarea value={inp} onChange={(e) => setInp(e.target.value)}/>
+                                <textarea 
+                                    value={inp} 
+                                    onChange={(e) => setInp(e.target.value)} 
+                                    onKeyDown={(e) => handleKeyPress(e)}
+                                />
                                 <button className="send-btn" onClick={sendMsg}>
                                     Send
                                 </button>
