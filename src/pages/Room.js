@@ -1,5 +1,5 @@
 import '../styles/Room.css';
-import { useState, useContext, useEffect } from "react";
+import { useState, useContext, useEffect, useRef } from "react";
 import { useParams } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
 import { Nav } from "../components/Nav";
@@ -8,6 +8,7 @@ import { AccountContext } from '../context/AccountContext';
 import { addDoc, collection, query, orderBy, getFirestore, onSnapshot } from 'firebase/firestore';
 
 export const Room = () => {
+    const messagesEndRef = useRef(null)
     const context = useContext(AccountContext);
     const isSignedIn = context.isSignedIn;
     const curProf = context.currentProfile;
@@ -64,6 +65,11 @@ export const Room = () => {
         }
     }
 
+    const scrollToBottom = () => {
+        messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
+    }
+
+
     // Subscribe when mounted, and unsubscribe when unmounted
     useEffect(
         () => {
@@ -77,6 +83,12 @@ export const Room = () => {
             }
         }
     , [])
+
+    useEffect(
+        () => {
+            scrollToBottom();
+        }
+    , [message])
 
 
     return(
@@ -108,6 +120,7 @@ export const Room = () => {
                                         )
                                     })
                                 }
+                                <div ref={messagesEndRef}/> 
                             </div>
                     
                             <div className="inp-cont">
