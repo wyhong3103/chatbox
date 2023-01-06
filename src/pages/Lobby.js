@@ -15,6 +15,12 @@ export const Lobby = () => {
         navigate(`/room/${keyword}`);
     }
 
+    const handleKeyPress = (key) => {
+        if (key === "Enter"){
+            toRoom();
+        }
+    }
+
     return(
         <div className='main-cont'>
             {
@@ -28,6 +34,7 @@ export const Lobby = () => {
                                 <input
                                     value={keyword}
                                     onChange={(e) => setKeyword(e.target.value)}
+                                    onKeyDown={(e) => handleKeyPress(e.key)}
                                     id="keyword-inp"
                                 />
                             </label>
