@@ -22,6 +22,9 @@ export const Lobby = () => {
                                 id="keyword-inp"
                             />
                         </label>
+                        <button className='enter-btn'>
+                            Enter
+                        </button>
                     </div>
                 </div>
 
