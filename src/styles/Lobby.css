@@ -1,0 +1,55 @@
+.lobby-cont{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lobby-flex{
+    padding-top : 25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap : 3rem;
+}
+
+.lobby-cont label{
+    font-size : 3rem;
+    font-family: var(--main-font);
+    color : var(--dark-blue);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap : 2rem;
+}
+
+.lobby-cont input{
+    font-size: 2rem;
+    padding : 1rem;
+    border: none;
+    background-color: var(--chatbox-bg);
+    font-family: var(--main-font);
+    border-radius: 1rem;
+}
+
+.lobby-cont input:focus{
+    outline: none;
+}
+
+.enter-btn{
+    font-family: var(--main-font);
+    font-size: 2rem;
+    background-color: var(--blue);
+    color : white;
+    border: none;
+    font-weight: 700;
+    padding : 1.5rem;
+    border-radius: 1rem;
+    transition: all 0.3s;
+}
+
+.enter-btn:hover{
+    cursor: pointer;
+    background-color: var(--blue1);
+}
