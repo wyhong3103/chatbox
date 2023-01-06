@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import '../styles/Nav.css';
 
 export const Nav = () => {
@@ -5,13 +6,15 @@ export const Nav = () => {
         <nav>
             <div className="nav-left">
                 <h1 className="title">
-                    ChatBox
+                    Chat Box
                 </h1>
             </div>
             <div className="nav-right">
                 <ul>
                     <li>
-                        Lobby
+                        <Link to="/">
+                            Lobby
+                        </Link>
                     </li>
                     <li>
                         Sign Out
