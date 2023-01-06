@@ -23,7 +23,6 @@ export const Login = () => {
     const signIn = () => {
         signInWithPopup(auth, provider).then(
             (result) => {
-                console.log(result.user)
                 context.setStatus(true);
                 setIsSignedInTemp(true);
                 context.setCurProf(
