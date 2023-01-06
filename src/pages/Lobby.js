@@ -16,6 +16,7 @@ export const Lobby = () => {
     }
 
     const handleKeyPress = (key) => {
+        if (keyword.trim() === "") return;
         if (key === "Enter"){
             toRoom();
         }
