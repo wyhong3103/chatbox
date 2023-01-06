@@ -28,7 +28,7 @@
     font-size: 2rem;
     padding : 1rem;
     border: none;
-    background-color: var(--chatbox-bg);
+    background-color: var(--gray);
     font-family: var(--main-font);
     border-radius: 1rem;
 }

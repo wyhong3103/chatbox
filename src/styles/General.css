@@ -15,7 +15,8 @@ html{
     --blue : #3882F6;
     --blue1 : #3166bd;
     --dark-blue : #1F2937;
-    --chatbox-bg : #E5E7EB;
+    --gray : #E5E7EB;
+    --dark-gray : #cccccc;
 }
 
 .main{
