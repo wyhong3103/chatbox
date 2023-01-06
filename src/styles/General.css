@@ -1,0 +1,15 @@
+*{
+    margin : 0;
+    padding : 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 10px;
+    --nav-bg : #1F2937;
+    --nav-title : #F9FAF8;
+    --nav-link : #E5E7EB;
+    --blue : #3882F6;
+    --dark-blue : #1F2937;
+    --chatbox-bg : #E5E7EB;
+}
