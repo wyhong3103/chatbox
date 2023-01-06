@@ -1,6 +1,6 @@
 nav{
     background-color: var(--nav-bg);
-    font-family: 'Roboto', sans-serif;
+    font-family: var(--main-font);
     padding : 2rem 5rem 2rem 5rem;
     display: flex;
     flex-direction: row;
