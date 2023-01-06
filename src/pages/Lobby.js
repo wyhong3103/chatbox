@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import { Nav } from '../components/Nav';
 import '../styles/Lobby.css';
 
@@ -7,6 +7,11 @@ export const Lobby = () => {
     // use Context later
     const [keyword, setKeyword] = useState("");
     let isSignedIn = true;
+    const navigate = useNavigate();
+
+    const toRoom = () => {
+        navigate(`/room/${keyword}`);
+    }
 
     return(
         <div className='main-cont'>
@@ -24,7 +29,7 @@ export const Lobby = () => {
                                     id="keyword-inp"
                                 />
                             </label>
-                            <button className='enter-btn'>
+                            <button className='enter-btn' onClick={toRoom}>
                                 Enter
                             </button>
                         </div>
