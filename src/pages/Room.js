@@ -128,6 +128,7 @@ export const Room = () => {
                                     value={inp} 
                                     onChange={(e) => setInp(e.target.value)} 
                                     onKeyDown={(e) => handleKeyPress(e)}
+                                    maxLength="20000"
                                 />
                                 <button className="send-btn" onClick={sendMsg}>
                                     Send
