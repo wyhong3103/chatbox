@@ -1,0 +1,72 @@
+.msg-outerbox{
+    width : 100%;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+}
+
+.msg-box{
+    grid-column: 1 / span 4;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows : repeat(5, 1fr);
+}
+
+.msg-pfp-box{
+    grid-row: 2 / -1;
+    grid-column: 1 / 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.msg-pfp{
+    height : 4rem;
+    width : 4rem;
+    border-radius: 100%;
+}
+
+.msg-name{
+    grid-column: 2 / -1;
+    grid-row : 1 / 2;
+    padding-left : 1rem;
+}
+
+.msg-content-box{
+    grid-column : 2 / -1;
+    grid-row : 2 / -1;
+    display: flex;
+    align-items: center;
+}
+
+.msg-content{
+    padding : 1rem;
+    background-color: var(--gray);
+    border-radius: 1rem;
+    transition: all 0.3s;
+}
+
+.msg-content:hover{
+    background-color: var(--dark-gray);
+}
+
+.self-msg-box{
+    grid-column: 7 / -1;
+}
+
+.self-msg-content-box{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.self-msg-content{
+    padding : 1rem;
+    background-color: var(--blue);
+    color : white;
+    border-radius: 1rem;
+    transition: all 0.3s;
+}
+
+.self-msg-content:hover{
+    background-color: var(--blue1);
+}

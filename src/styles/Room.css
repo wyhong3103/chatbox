@@ -11,7 +11,6 @@
 .room-details{
     padding : 2rem;
     border-radius: 1rem;
-    background-color: var(--gray);
 }
 
 .room-details h3{
@@ -20,11 +19,22 @@
 }
 
 .chat-box{
+    height : 55rem;
+    width : 100rem;
     padding : 2rem;
     border-radius: 1rem;
     font-size: 1.5rem;
     display: flex;
     flex-direction: column;
+    gap : 2rem;
+}
+
+.msg-cont{
+    height : 50rem;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    padding : 0.5rem;
     gap : 1rem;
 }
 
