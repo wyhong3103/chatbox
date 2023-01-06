@@ -1,0 +1,26 @@
+nav{
+    background-color: var(--nav-bg);
+    font-family: 'Roboto', sans-serif;
+    padding : 2rem 5rem 2rem 5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1.title{
+    color : var(--nav-title);
+    font-size: 3rem;
+}
+
+.nav-right ul{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    gap : 2rem;
+}
+
+.nav-right li{
+    color : var(--nav-link);
+    font-size: 2rem;
+}
