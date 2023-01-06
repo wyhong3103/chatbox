@@ -12,7 +12,7 @@ export const App = () => {
                     element={<Login/>}
                 />
                 <Route
-                    path="/lobby"
+                    path="/"
                     element={<Lobby/>}
                 />
                 <Route
