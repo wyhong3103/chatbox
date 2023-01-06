@@ -1,20 +1,75 @@
 import '../styles/Room.css';
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { useParams } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
 import { Nav } from "../components/Nav";
 import { Message } from "../components/Message";
 import { AccountContext } from '../context/AccountContext';
-
+import { addDoc, collection, query, orderBy, getFirestore, onSnapshot } from 'firebase/firestore';
 
 export const Room = () => {
-    // use Context later
-    const isSignedIn = useContext(AccountContext).isSignedIn;
+    const context = useContext(AccountContext);
+    const isSignedIn = context.isSignedIn;
+    const curProf = context.currentProfile;
+
+    /*
+        Each message's structure
+        {
+            name,
+            profileURL,
+            content,
+            id - message id,
+            uid,
+        }
+    */
+
     const [message, setMessage] = useState([]);
     const [inp, setInp] = useState("");
     const { id } = useParams();
 
-    //retrieve message from room with id
+    // Firebase Firestore
+    const db = getFirestore();
+
+    const getMessages = (querySnapshot) => {
+        const messageTemp = [];
+
+        querySnapshot.forEach(
+            (doc) => {
+                messageTemp.push({
+                    ...doc.data(),
+                    id : doc.id
+                });
+            }
+        )
+
+        return messageTemp;
+    }
+
+    // Subscribe when mounted, and unsubscribe when unmounted
+    useEffect(
+        () => {
+            const q = query(collection(db, 'room', id, 'message'), orderBy('timestamp'));
+            const unsubscribe = onSnapshot(q, (querySnapshot) => {
+                setMessage(getMessages(querySnapshot));
+            });
+
+            return () => {
+                unsubscribe()
+            }
+        }
+    , [])
+
+    const sendMsg = async () => {
+        setInp("");
+        addDoc(collection(db, 'room', id, 'message'), {
+            name : curProf.name,
+            profileURL : curProf.profileURL,
+            content : inp,
+            uid : curProf.uid,
+            timestamp : Date.now()
+        })
+    }
+
 
     return(
         <div>
@@ -36,11 +91,10 @@ export const Room = () => {
                                 {
                                     message.map((msg) => {
                                         return (
-                                            <Message msg={
+                                            <Message key={msg.id} msg={
                                                 {
                                                     ...msg,
-                                                    // according to authentication ID
-                                                    isSelf : true
+                                                    isSelf : msg.uid === curProf.uid
                                                 }
                                             }/>
                                         )
@@ -50,7 +104,7 @@ export const Room = () => {
                     
                             <div className="inp-cont">
                                 <textarea value={inp} onChange={(e) => setInp(e.target.value)}/>
-                                <button className="send-btn">
+                                <button className="send-btn" onClick={sendMsg}>
                                     Send
                                 </button>
                             </div>
