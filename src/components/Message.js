@@ -25,12 +25,16 @@ export const Message = ({msg}) => {
                 :
 
                 <div className="msg-box">
-                    <div className="msg-pfp-box">
-                        <img className="msg-pfp" src={msg.profileURL} alt={`${msg.name} Profile Pic`}/>
+                    <div className="msg-box-left">
+                        <div className="msg-pfp-box">
+                            <img className="msg-pfp" src={msg.profileURL} alt={`${msg.name} Profile Pic`}/>
+                        </div>
                     </div>
-                    <p className="msg-name">{msg.name}</p>
-                    <div className="msg-content-box">
-                        <div className="msg-content">{msg.content}</div>
+                    <div className="msg-box-right">
+                        <p className="msg-name">{msg.name}</p>
+                        <div className="msg-content-box">
+                            <div className="msg-content">{msg.content}</div>
+                        </div>
                     </div>
                 </div>
             }
