@@ -5,6 +5,7 @@ import { Room } from './pages/Room';
 import './styles/General.css';
 import { AccountContext } from './context/AccountContext';
 import { useState } from 'react';
+import './firebase/firebase';
 
 export const App = () => {
     
