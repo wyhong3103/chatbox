@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import { Nav } from '../components/Nav';
+import '../styles/Lobby.css';
 
 export const Lobby = () => {
     // use Context later
@@ -8,23 +9,25 @@ export const Lobby = () => {
     let isSignedIn = true;
 
     return(
-        <div>
+        <div className='main-cont'>
             {
                 isSignedIn ?
-                <div>
+                <div className='main-cont'>
                     <Nav/>
                     <div className='lobby-cont'>
-                        <label htmlFor='keyword-inp'>
-                            Enter a keyword to join a chat box.
-                            <input 
-                                value={keyword} 
-                                onChange={(e) => setKeyword(e.target.value)}
-                                id="keyword-inp"
-                            />
-                        </label>
-                        <button className='enter-btn'>
-                            Enter
-                        </button>
+                        <div className="lobby-flex">
+                            <label htmlFor='keyword-inp'>
+                                Enter a keyword to join the chat box.
+                                <input
+                                    value={keyword}
+                                    onChange={(e) => setKeyword(e.target.value)}
+                                    id="keyword-inp"
+                                />
+                            </label>
+                            <button className='enter-btn'>
+                                Enter
+                            </button>
+                        </div>
                     </div>
                 </div>
 
