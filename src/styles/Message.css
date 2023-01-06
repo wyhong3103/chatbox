@@ -44,6 +44,8 @@
     background-color: var(--gray);
     border-radius: 1rem;
     transition: all 0.3s;
+    word-wrap: break-word;
+    word-break: break-all;
 }
 
 .msg-content:hover{
@@ -66,6 +68,8 @@
     color : white;
     border-radius: 1rem;
     transition: all 0.3s;
+    word-wrap: break-word;
+    word-break: break-all;
 }
 
 .self-msg-content:hover{
