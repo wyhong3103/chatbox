@@ -8,29 +8,37 @@ import { useState } from 'react';
 
 export const App = () => {
     
-    const [isSignedIn, ,setIsSignedIn] = useState(false);
-    const [currentProfile, ,setCurrentProfile] = useState({});
+    const [isSignedIn, setIsSignedIn] = useState(false);
+    const [currentProfile, setCurrentProfile] = useState({});
+
+    const setStatus = (bool) => {
+        setIsSignedIn(bool);
+    }
+
+    const setCurProf = (prof) => {
+        setCurrentProfile(prof);
+    }
 
     return(
         <div className='main'>
             <AccountContext.Provider value ={
                 {
-                    isSignedIn, currentProfile
+                    isSignedIn, currentProfile, setStatus, setCurProf
                 }
             }>
                 <BrowserRouter>
                     <Routes>
                         <Route
                             path="/login"
-                            element={<Login setSigned={setIsSignedIn} setCurProfile={setCurrentProfile}/>}
+                            element={<Login/>}
                         />
                         <Route
                             path="/"
-                            element={<Lobby setSigned={setIsSignedIn} setCurProfile={setCurrentProfile}/>}
+                            element={<Lobby/>}
                         />
                         <Route
                             path="/room/:id"
-                            element={<Room setSigned={setIsSignedIn} setCurProfile={setCurrentProfile}/>}
+                            element={<Room/>}
                         />
                         {/*
                             404 Not Found Page
