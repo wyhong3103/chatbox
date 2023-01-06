@@ -36,7 +36,13 @@ export const Room = () => {
                                 {
                                     message.map((msg) => {
                                         return (
-                                            <Message msg={msg}/>
+                                            <Message msg={
+                                                {
+                                                    ...msg,
+                                                    // according to authentication ID
+                                                    isSelf : true
+                                                }
+                                            }/>
                                         )
                                     })
                                 }
