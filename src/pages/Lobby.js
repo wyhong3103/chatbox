@@ -17,7 +17,7 @@ export const Lobby = () => {
                     <div className='lobby-cont'>
                         <div className="lobby-flex">
                             <label htmlFor='keyword-inp'>
-                                Enter a keyword to join the chat box.
+                                <h3>Enter a keyword to join the chat box.</h3>
                                 <input
                                     value={keyword}
                                     onChange={(e) => setKeyword(e.target.value)}
