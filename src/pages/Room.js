@@ -1,14 +1,15 @@
 import '../styles/Room.css';
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useParams } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
 import { Nav } from "../components/Nav";
 import { Message } from "../components/Message";
+import { AccountContext } from '../context/AccountContext';
 
 
 export const Room = () => {
     // use Context later
-    let isSignedIn = true;
+    const isSignedIn = useContext(AccountContext).isSignedIn;
     const [message, setMessage] = useState([]);
     const [inp, setInp] = useState("");
     const { id } = useParams();

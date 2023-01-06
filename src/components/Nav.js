@@ -1,7 +1,11 @@
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AccountContext } from '../context/AccountContext';
 import '../styles/Nav.css';
 
 export const Nav = () => {
+    const context = useContext(AccountContext);
+
     return(
         <nav>
             <div className="nav-left">
@@ -16,7 +20,13 @@ export const Nav = () => {
                             Lobby
                         </Link>
                     </li>
-                    <li>
+                    {/* Might change later according to auth state change*/}
+                    <li onClick={
+                        () => {
+                            context.setStatus(false);
+                            context.setCurProf({});
+                        }
+                    }>
                         Sign Out
                     </li>
                 </ul>

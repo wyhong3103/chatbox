@@ -1,12 +1,14 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { Nav } from '../components/Nav';
+import { AccountContext } from '../context/AccountContext';
 import '../styles/Lobby.css';
 
 export const Lobby = () => {
     // use Context later
     const [keyword, setKeyword] = useState("");
-    let isSignedIn = true;
+    const context = useContext(AccountContext);
+    const isSignedIn = context.isSignedIn;
     const navigate = useNavigate();
 
     const toRoom = () => {
