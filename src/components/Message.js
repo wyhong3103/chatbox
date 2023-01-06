@@ -1,3 +1,5 @@
+import '../styles/Message.css';
+
 export const Message = ({msg}) => {
     /*
         msg = {
@@ -8,23 +10,26 @@ export const Message = ({msg}) => {
         }
     */
     return(
-        <div>
+        <div className='msg-outerbox'>
             {
                 msg.isSelf ?
                 
                 <div className="self-msg-box">
-                    <div className="self-msg-content">
-                        {msg.content}
+                    <div className="self-msg-content-box">
+                        <div className="self-msg-content">
+                            {msg.content}
+                        </div>
                     </div>
                 </div>
 
                 :
 
                 <div className="msg-box">
-                    <img className="msg-pfp" src={msg.profileUrl} alt={`${msg.name} Profile Pic`}/>
+                    <div className="msg-pfp-box"><img className="msg-pfp" src={msg.profileUrl} alt={`${msg.name} Profile Pic`}/></div>
                     <p className="msg-name">{msg.name}</p>
-                    <div className="msg-content">
-                        {msg.content}
+                    <div className="msg-content-box">
+
+                        <div className="msg-content">{msg.content}</div>
                     </div>
                 </div>
             }
