@@ -1,15 +1,45 @@
 import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AccountContext } from '../context/AccountContext';
+import {getAuth, signInWithPopup, GoogleAuthProvider} from 'firebase/auth';
 import '../styles/Login.css';
 
 export const Login = () => {
     const context = useContext(AccountContext);
     const isSignedIn = context.isSignedIn;
+
     // A temporary state to trigger navigation
     const [isSignedInTemp, setIsSignedInTemp] = useState(isSignedIn);
+
     const googleIcon = require('../assets/google.png');
+    
+    // Navigator
     const navigate = useNavigate();
+    
+    // Firebase Auth
+    const provider = new GoogleAuthProvider();
+    const auth = getAuth();
+
+    const signIn = () => {
+        signInWithPopup(auth, provider).then(
+            (result) => {
+                console.log(result.user)
+                context.setStatus(true);
+                setIsSignedInTemp(true);
+                context.setCurProf(
+                    {
+                        name : result.user.displayName,
+                        profileURL : result.user.photoURL,
+                        uid : result.user.uid
+                    }
+                );
+            }
+        ).catch(
+            (error) => {
+                console.log(error);
+            }
+        )
+    }
 
     useEffect(() => {
         if (isSignedInTemp){
@@ -27,17 +57,7 @@ export const Login = () => {
                         <img src={googleIcon} alt="Google Icon"/>
                     </div>
                     {/* Might change later according to auth state change*/}
-                    <span onClick={
-                        () => {
-                            context.setStatus(true);
-                            setIsSignedInTemp(true);
-                            context.setCurProf({
-                                name : "test",
-                                profileUrl : "https://static.vecteezy.com/packs/media/vectors/term-bg-1-3d6355ab.jpg",
-                                id : "1"
-                            })
-                        }
-                    }>Sign In</span>
+                    <span onClick={signIn}>Sign In</span>
                 </button>
             </div>
         </div>
