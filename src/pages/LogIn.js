@@ -10,7 +10,9 @@ export const Login = () => {
             <div className="login-box">
                 <h3>Please sign in with your google account to continue.</h3>
                 <button>
-                    <img src={googleIcon} alt="Google Icon"/>
+                    <div className="img-box">
+                        <img src={googleIcon} alt="Google Icon"/>
+                    </div>
                     <span>Sign In</span>
                 </button>
             </div>
