@@ -1,0 +1,70 @@
+.room-flex{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding : 1rem;
+    font-family: var(--main-font);
+    color : var(--dark-blue);
+}
+
+.room-details{
+    padding : 2rem;
+    border-radius: 1rem;
+    background-color: var(--gray);
+}
+
+.room-details h3{
+    font-size: 2rem;
+    text-align: center;
+}
+
+.chat-box{
+    padding : 2rem;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap : 1rem;
+}
+
+.inp-cont{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap : 1rem;
+}
+
+.inp-cont textarea{
+    font-family: var(--main-font);
+    height : 7rem;
+    width : 30rem;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+    border:none;
+    padding : 1rem;
+    resize: none;
+    background-color: var(--gray);
+}
+
+.inp-cont textarea:focus{
+    outline: none;
+}
+
+.inp-cont button{
+    font-family: var(--main-font);
+    padding : 1rem;
+    font-size: 1.5rem;
+    border: none;
+    background-color: var(--blue);
+    color : white;
+    font-weight: 700;
+    border-radius : 1rem;
+    transition: all 0.3s;
+}
+
+.inp-cont button:hover{
+    cursor: pointer;
+    background-color: var(--blue1);
+}
