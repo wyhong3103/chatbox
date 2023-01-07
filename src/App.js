@@ -1,4 +1,5 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import { NotFound } from './pages/NotFound';
 import { Lobby } from './pages/Lobby';
 import { Login } from './pages/LogIn';
 import { Room } from './pages/Room';
@@ -41,9 +42,10 @@ export const App = () => {
                             path="/room/:id"
                             element={<Room/>}
                         />
-                        {/*
-                            404 Not Found Page
-                        */}
+                        <Route
+                            path="*"
+                            element={<NotFound/>}
+                        />
                     </Routes>
                 </BrowserRouter>
             </AccountContext.Provider>
