@@ -9,9 +9,18 @@ nav{
 }
 
 h1.title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap : 1rem;
     color : var(--nav-title);
     font-size: 3rem;
     user-select: none;
+}
+
+.nav-icon{
+    height : 3rem;
+    width : 3rem;
 }
 
 .nav-right ul{

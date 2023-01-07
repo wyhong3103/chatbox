@@ -13,6 +13,15 @@
 
 .login-cont h1{
     font-size: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap : 2rem;
+}
+
+.login-icon{
+    height : 6rem;
+    width : 6rem;
 }
 
 .login-box{

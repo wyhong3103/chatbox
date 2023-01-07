@@ -5,6 +5,7 @@ import {getAuth, signInWithPopup, GoogleAuthProvider} from 'firebase/auth';
 import '../styles/Login.css';
 
 export const Login = () => {
+    const chatBubble = require('../assets/chatBubble.png');
     const googleIcon = require('../assets/google.png');
     
     // Context
@@ -50,7 +51,7 @@ export const Login = () => {
 
     return(
         <div className="login-cont">
-            <h1>Chat Box</h1>
+            <h1>Chat Box <img className='login-icon' src={chatBubble} alt='Chat Bubble'/></h1>
             <div className="login-box">
                 <h3>Please sign in with your google account to continue.</h3>
                 <button>

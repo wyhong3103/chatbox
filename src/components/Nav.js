@@ -5,6 +5,8 @@ import { getAuth, signOut } from 'firebase/auth';
 import '../styles/Nav.css';
 
 export const Nav = () => {
+    const chatBubble = require('../assets/chatBubble.png');
+    
     // Context
     const context = useContext(AccountContext);
 
@@ -29,7 +31,7 @@ export const Nav = () => {
         <nav>
             <div className="nav-left">
                 <h1 className="title">
-                    Chat Box
+                    Chat Box <img className="nav-icon" src={chatBubble} alt="Chat Bubble"/>
                 </h1>
             </div>
             <div className="nav-right">
