@@ -5,11 +5,13 @@ import { getAuth, signOut } from 'firebase/auth';
 import '../styles/Nav.css';
 
 export const Nav = () => {
+    // Context
     const context = useContext(AccountContext);
 
     // Firebase Auth
     const auth = getAuth();
 
+    // Signing Out Function
     const signOutFunc = () => {
         signOut(auth).then(
             () => {

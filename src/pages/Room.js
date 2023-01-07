@@ -8,29 +8,35 @@ import { AccountContext } from '../context/AccountContext';
 import { addDoc, collection, query, orderBy, getFirestore, onSnapshot } from 'firebase/firestore';
 
 export const Room = () => {
+    // Room ID
+    const { id } = useParams();
+
+    // Div element for scroll to bottom trick
     const messagesEndRef = useRef(null)
+
+    //Context
     const context = useContext(AccountContext);
     const isSignedIn = context.isSignedIn;
     const curProf = context.currentProfile;
 
     /*
-        Each message's structure
+        Individual Message's structure
         {
             name,
             profileURL,
             content,
-            id - message id,
+            id,
             uid,
+            timestamp
         }
     */
-
     const [message, setMessage] = useState([]);
     const [inp, setInp] = useState("");
-    const { id } = useParams();
 
     // Firebase Firestore
     const db = getFirestore();
 
+    // Function to extract messages from snapshot
     const getMessages = (querySnapshot) => {
         const messageTemp = [];
 
@@ -46,6 +52,7 @@ export const Room = () => {
         return messageTemp;
     }
 
+    // Function to send message that is non-whitespace
     const sendMsg = async () => {
         if (inp.trim() === "") return;
         setInp("");
@@ -58,6 +65,7 @@ export const Room = () => {
         })
     }
 
+    // Trigger sending message if enter is pressed and shift is not pressed
     const handleKeyPress = (e) => {
         if (e.key === "Enter" && !e.shiftKey){
             e.preventDefault();
@@ -65,6 +73,7 @@ export const Room = () => {
         }
     }
 
+    // Scroll to bottom trick
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
     }
@@ -84,6 +93,7 @@ export const Room = () => {
         }
     , [])
 
+    // Trigger scroll to bottom every time a message is sent
     useEffect(
         () => {
             scrollToBottom();

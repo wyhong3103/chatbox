@@ -5,16 +5,17 @@ import {getAuth, signInWithPopup, GoogleAuthProvider} from 'firebase/auth';
 import '../styles/Login.css';
 
 export const Login = () => {
+    const googleIcon = require('../assets/google.png');
+    
+    // Context
     const context = useContext(AccountContext);
     const isSignedIn = context.isSignedIn;
-
-    // A temporary state to trigger navigation
-    const [isSignedInTemp, setIsSignedInTemp] = useState(isSignedIn);
-
-    const googleIcon = require('../assets/google.png');
     
     // Navigator
     const navigate = useNavigate();
+
+    // A temporary state to trigger navigation
+    const [isSignedInTemp, setIsSignedInTemp] = useState(isSignedIn);
     
     // Firebase Auth
     const provider = new GoogleAuthProvider();
@@ -40,6 +41,7 @@ export const Login = () => {
         )
     }
 
+    // React hook to trigger navigation if signed in
     useEffect(() => {
         if (isSignedInTemp){
             navigate('/');
@@ -55,7 +57,6 @@ export const Login = () => {
                     <div className="img-box">
                         <img src={googleIcon} alt="Google Icon"/>
                     </div>
-                    {/* Might change later according to auth state change*/}
                     <span onClick={signIn}>Sign In</span>
                 </button>
             </div>

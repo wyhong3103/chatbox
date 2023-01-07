@@ -5,16 +5,22 @@ import { AccountContext } from '../context/AccountContext';
 import '../styles/Lobby.css';
 
 export const Lobby = () => {
-    // use Context later
-    const [keyword, setKeyword] = useState("");
+    // Context
     const context = useContext(AccountContext);
     const isSignedIn = context.isSignedIn;
+
+    // Navigator
     const navigate = useNavigate();
+
+    // Input State
+    const [keyword, setKeyword] = useState("");
 
     const toRoom = () => {
         navigate(`/room/${keyword}`);
     }
 
+    // Trigger navigation when enter is pressed and
+    // only when keyword doesn't just consist of whitespace
     const handleKeyPress = (key) => {
         if (keyword.trim() === "") return;
         if (key === "Enter"){
