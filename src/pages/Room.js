@@ -151,7 +151,7 @@ export const Room = () => {
                 
                 :
                 
-                <Navigate to="/login"/>
+                <Navigate to="/chatbox/login"/>
 
             }
         </div>

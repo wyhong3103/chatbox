@@ -16,7 +16,7 @@ export const Lobby = () => {
     const [keyword, setKeyword] = useState("");
 
     const toRoom = () => {
-        navigate(`/room/${keyword}`);
+        navigate(`/chatbox/room/${keyword}`);
     }
 
     // Trigger navigation when enter is pressed and
@@ -54,7 +54,7 @@ export const Lobby = () => {
 
                 :
 
-                <Navigate to="/login"/>
+                <Navigate to="/chatbox/login"/>
             }
         </div>
     ) 
