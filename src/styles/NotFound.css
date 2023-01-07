@@ -5,10 +5,24 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap : 2rem;
     background-color: var(--dark-blue);
     font-family: var(--main-font);
     color : white;
     font-size: 3rem;
+}
+
+.not-found-cont h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 5rem;
+    gap : 2rem;
+}
+
+.not-found-icon{
+    height : 6rem;
+    width : 6rem;
 }
 
 .not-found-cont button{
