@@ -37,7 +37,7 @@ export const Nav = () => {
             <div className="nav-right">
                 <ul>
                     <li>
-                        <Link to="/chatbox/">
+                        <Link to="/">
                             Lobby
                         </Link>
                     </li>

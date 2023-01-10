@@ -31,19 +31,19 @@ export const App = () => {
                 <BrowserRouter>
                     <Routes>
                         <Route
-                            path="/chatbox/login"
+                            path="/login"
                             element={<Login/>}
                         />
                         <Route
-                            path="/chatbox/"
+                            path="/"
                             element={<Lobby/>}
                         />
                         <Route
-                            path="/chatbox/room/:id"
+                            path="/room/:id"
                             element={<Room/>}
                         />
                         <Route
-                            path="/chatbox/*"
+                            path="/*"
                             element={<NotFound/>}
                         />
                     </Routes>

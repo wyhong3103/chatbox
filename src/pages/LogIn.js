@@ -45,7 +45,7 @@ export const Login = () => {
     // React hook to trigger navigation if signed in
     useEffect(() => {
         if (isSignedInTemp){
-            navigate('/chatbox/');
+            navigate('/');
         }
     }, [isSignedInTemp])
 

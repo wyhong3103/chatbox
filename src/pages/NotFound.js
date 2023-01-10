@@ -7,7 +7,7 @@ export const NotFound = () => {
     const navigate = useNavigate();
 
     const toHome = () => {
-        navigate('/chatbox/');
+        navigate('/');
     }
 
     return(
