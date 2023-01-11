@@ -15,4 +15,4 @@ This is my very first attempt on something related to backend, it was quite fun.
 
 # Live Demo
 
-[Click Me](https://wyhong3103.github.io/chatbox/)
+[Click Me](https://yourfavchatbox.netlify.app)
